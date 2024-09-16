@@ -4,7 +4,7 @@ import random
 import jokenpo
 import time
 
-def gerir_cliente(conn):
+def gerir_cliente(conn, addr):
 
     #receber mensagem
     jogada_cliente = conn.recv(1024)
@@ -17,7 +17,7 @@ def gerir_cliente(conn):
     resultado_final = mensagem_resultado(resultado, jogada_servidor)
 
     #sleep só para simular um tempo maior de processamento
-    time.sleep(3)
+    time.sleep(2)
 
     resultado_final = resultado_final.encode()
 
@@ -48,9 +48,9 @@ all_threads = []
 try:
     while True:
         print("Esperando jogada")
-        conn = s.accept()
+        conn, addr = s.accept()
         
-        t = threading.Thread(target=gerir_cliente, args=(conn))
+        t = threading.Thread(target=gerir_cliente, args=(conn, addr))
         t.start()
     
         all_threads.append(t)
