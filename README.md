@@ -1,6 +1,6 @@
 # jokenpo-server-client
 
-A Jokenpo made with python and sockets.  
+A Jokenpo made by Bruno H and Antony with python and sockets.  
 This project supports a maximum of 5 simultaneous connections playing in one server.  
 Each request is handled in a different thread.
 
